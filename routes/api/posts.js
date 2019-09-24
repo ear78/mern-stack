@@ -7,6 +7,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
 	const posts = await loadPostsCollection()
 	res.send(await posts.find({}).toArray())
+		 .catch(err => res.send('error retrieving posts'))
 })
 
 // Add Posts
@@ -17,28 +18,34 @@ router.post('/', async (req, res) => {
 		createdAt: new Date()
 	})
 	res.status(201).send()
+		 .catch(err => res.send('error adding post'))
 })
 
 // Update Posts
 router.put('/:id', async (req, res) => {
 	const posts = await loadPostsCollection()
-	const query = {_id: new mongodb.ObjectID(req.params.id)}
-	await posts.updateOne(query, { $set: { text: req.body.text }})
+	const query = { _id: new mongodb.ObjectID(req.params.id) }
+	await posts.updateOne(query, { $set: { text: req.body.text } })
 	res.status(201).send()
+		 .catch(err => res.send('error updating post'))
 })
 
 // Delete Posts
 router.delete('/:id', async (req, res) => {
 	const posts = await loadPostsCollection()
-	await posts.deleteOne({_id: new mongodb.ObjectID(req.params.id)})
+	await posts.deleteOne({ _id: new mongodb.ObjectID(req.params.id) })
 	res.status(200).send()
+		 .catch(err => res.send('error deleting post'))
 })
 
 // Connecting to DB
 const db = require('../../config/keys').mongoURI
 
 async function loadPostsCollection() {
-	const client = await mongodb.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+	const client = await mongodb.connect(db, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 
 	return client.db('mern1').collection('posts')
 }
