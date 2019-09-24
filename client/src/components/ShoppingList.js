@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { getItems, deleteItem, addItem } from '../actions/itemActions'
 import Proptypes from 'prop-types'
 
-import ItemModal from './ItemModal'
-
 class ShoppingList extends React.Component {
 
 	componentDidMount() {
@@ -19,11 +17,13 @@ class ShoppingList extends React.Component {
 		const { items } = this.props.item
 		console.log(items)
 		const listItem = items.map((li) => {
-			return <li key={li.id}><button onClick={this.handleDeleteClick.bind(this, li.id)}>&times;</button>{li.name}</li>
+			return <li key={li.id}>
+				<button
+					onClick={this.handleDeleteClick.bind(this, li.id)}>&times;</button>
+				{li.name}</li>
 		})
 		return (
 			<div>
-				<ItemModal/>
 				{listItem}
 			</div>
 		)
@@ -39,4 +39,8 @@ const mapStateToProps = (state) => ({
 	item: state.item
 })
 
-export default connect(mapStateToProps, { getItems, deleteItem, addItem })(ShoppingList)
+export default connect(mapStateToProps, {
+	getItems,
+	deleteItem,
+	addItem
+})(ShoppingList)
