@@ -1,0 +1,38 @@
+import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from '../actions/types'
+
+const initialState = {
+	items: [
+		{
+			id: 0,
+			name: 'Eggs'
+		},
+		{
+			id: 1,
+			name: 'Milk'
+		},
+		{
+			id: 2,
+			name: 'Steak'
+		},
+		{
+			id: 3,
+			name: 'Water'
+		}
+	]
+}
+
+export default function(state = initialState, action) {
+	switch (action.type) {
+		case GET_ITEMS:
+			return {
+				...state
+			}
+		case DELETE_ITEM:
+			return {
+				...state,
+				items: state.items.filter(item => item.id !== action.payload)
+			}
+		default:
+			return state
+	}
+}
