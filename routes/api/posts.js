@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
 		text: req.body.text,
 		createdAt: new Date()
 	})
-	res.status(201).send()
+
+  res.json(await posts.find({}).toArray())
 })
 
 // Update Posts

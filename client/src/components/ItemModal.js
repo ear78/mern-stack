@@ -10,7 +10,6 @@ class ItemModal extends React.Component {
 	}
 
 	toggle = () => {
-		console.log('fired')
 		this.setState(	prevState => ({
 			modal: !prevState.modal,
 			name: ''
@@ -25,8 +24,7 @@ class ItemModal extends React.Component {
 		event.preventDefault()
 		const { items } = this.props.item
 		const newItem = {
-			id: items.length + 1,
-			name: this.state.name
+			text: this.state.name
 		}
 
 		this.props.addItem(newItem)
@@ -50,27 +48,40 @@ class ItemModal extends React.Component {
 			boxSizing: 'border-box',
 			display: isModalActive
 		}
+
+		const modalBg = {
+			height: '100%',
+			width: '100%',
+			background: 'rgba(0,0,0,.7)',
+			position: 'fixed',
+			top: '0',
+			left: '0',
+			display: isModalActive
+		}
 		return (
 			<div>
 				<button onClick={this.toggle}>Add Item</button>
-				<div style={modalStyle}>
-				<span onClick={this.toggle}
-							style={{
-								cursor: 'pointer',
-								position: 'absolute',
-								top: '15px',
-								left: '15px'
-							}}>&times;</span>
-					<form onSubmit={this.handleSubmit}>
-						<label>Please add your name:
-							<input type="text"
-										 value={this.state.name}
-										 onChange={this.handleChange}/>
-						</label>
-						<button type="submit" value="Submit">Submit</button>
-					</form>
+				<div style={modalBg}>
+					<div style={modalStyle}>
+					<span onClick={this.toggle}
+								style={{
+									cursor: 'pointer',
+									position: 'absolute',
+									top: '15px',
+									left: '15px'
+								}}>&times;</span>
+						<form onSubmit={this.handleSubmit}>
+							<label>Please add your name:
+								<input type="text"
+											 value={this.state.name}
+											 onChange={this.handleChange}/>
+							</label>
+							<button type="submit" value="Submit">Submit</button>
+						</form>
+					</div>
 				</div>
 			</div>
+
 		)
 	}
 }
