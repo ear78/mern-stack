@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-// import { addItem } from '../actions/itemActions'
+import { getItems, addItem } from '../actions/itemActions'
 
 class ItemModal extends React.Component {
 	state = {
@@ -12,7 +12,8 @@ class ItemModal extends React.Component {
 	toggle = () => {
 		console.log('fired')
 		this.setState(	prevState => ({
-			modal: !prevState.modal
+			modal: !prevState.modal,
+			name: ''
 		}))
 	}
 
@@ -21,7 +22,16 @@ class ItemModal extends React.Component {
 	}
 
 	handleSubmit = (event) => {
+		event.preventDefault()
+		const { items } = this.props.item
+		const newItem = {
+			id: items.length + 1,
+			name: this.state.name
+		}
 
+		this.props.addItem(newItem)
+
+		this.toggle()
 	}
 
 	render() {
@@ -65,4 +75,11 @@ class ItemModal extends React.Component {
 	}
 }
 
-export default connect()(ItemModal)
+const mapStateToProps = (state) => ({
+	item: state.item
+})
+
+export default connect(mapStateToProps, {
+	getItems,
+	addItem
+})(ItemModal)

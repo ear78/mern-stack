@@ -15,12 +15,11 @@ class ShoppingList extends React.Component {
 
 	render() {
 		const { items } = this.props.item
-		console.log(items)
 		const listItem = items.map((li) => {
 			return <li key={li.id}>
 				<button
 					onClick={this.handleDeleteClick.bind(this, li.id)}>&times;</button>
-				{li.name}</li>
+				{li.text}</li>
 		})
 		return (
 			<div>
