@@ -1,5 +1,5 @@
 const express = require('express')
-const mongodb = require('mongodb').MongoClient
+const mongodb = require('mongodb')
 
 const router = express.Router()
 
@@ -40,8 +40,8 @@ router.put('/:id', async (req, res) => {
 // Delete Posts
 router.delete('/:id', async (req, res) => {
 	const posts = await loadPostsCollection()
-	const query = { _id: req.params.id }
-	await posts.deleteOne(query, function(err, obj){
+	const query = { _id: new mongodb.ObjectID(req.params.id) }
+	await posts.findOneAndDelete(query, function(err, obj){
 		if(err) throw err
 	})
 	res.send(await posts.find({}).toArray())
@@ -51,7 +51,7 @@ router.delete('/:id', async (req, res) => {
 const db = require('../../config/keys').mongoURI
 
 async function loadPostsCollection() {
-	const client = await mongodb.connect(db, {
+	const client = await mongodb.MongoClient.connect(db, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})
