@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Button from './ui/Button/Button'
+/* Redux */
 import { connect } from 'react-redux'
 import { getItems, addItem } from '../actions/itemActions'
 
@@ -60,7 +62,9 @@ class ItemModal extends React.Component {
 		}
 		return (
 			<div>
-				<button onClick={this.toggle}>Add Item</button>
+				<Button
+					text='Add Item'
+					click={this.toggle.bind(this)}></Button>
 				<div style={modalBg}>
 					<div style={modalStyle}>
 					<span onClick={this.toggle}

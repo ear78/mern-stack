@@ -11,12 +11,12 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <h1>Hello World</h1>
-        <ItemModal/>
-        <ShoppingList/>
+        <h1>MERN CRUD</h1>
+        <ItemModal />
+        <ShoppingList />
       </div>
     </Provider>
-  );
+  )
 }
 
 export default App;
