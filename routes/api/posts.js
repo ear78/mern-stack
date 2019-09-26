@@ -5,19 +5,28 @@ const router = express.Router()
 
 // Get Posts
 router.get('/', async (req, res, next) => {
-	const posts = await loadPostsCollection()
-	res.send(await posts.find({}).toArray())
+	try {
+		const posts = await loadPostsCollection()
+		res.send(await posts.find({}).toArray())
+	} catch(err){
+		console.log('having trouble retrieving the data')
+	}
+
 })
 
 // Add Posts
 router.post('/', async (req, res) => {
-	const posts = await loadPostsCollection()
-	await posts.insertOne({
-		text: req.body.text,
-		createdAt: new Date()
-	})
-
-  res.json(await posts.find({}).toArray())
+	try {
+		const posts = await loadPostsCollection()
+		const obj = {
+			text: req.body.text,
+			createdAt: new Date()
+		}
+		await posts.insertOne(obj)
+	  res.send(await posts.find({}).toArray())
+	} catch(err) {
+		res.status()
+	}
 })
 
 // Update Posts
