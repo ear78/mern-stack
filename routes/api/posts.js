@@ -39,10 +39,11 @@ router.put('/:id', async (req, res) => {
 
 // Delete Posts
 router.delete('/:id', async (req, res) => {
-	console.log('server delete', req.params.id)
 	const posts = await loadPostsCollection()
-	await posts.deleteOne({ _id: new mongodb.ObjectID(req.params.id) })
-	console.log('res', res)
+	const query = { _id: req.params.id }
+	await posts.deleteOne(query, function(err, obj){
+		if(err) throw err
+	})
 	res.send(await posts.find({}).toArray())
 })
 
