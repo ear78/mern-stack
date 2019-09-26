@@ -17,7 +17,7 @@ class ShoppingList extends React.Component {
 		const { items } = this.props.item
 		const listItem = items.map((li) => {
 			return <li key={li._id}>
-				<button onClick={this.handleDeleteClick.bind(this, li.id)}>&times;</button>
+				<button onClick={this.handleDeleteClick.bind(this, li._id)}>&times;</button>
 				{li.text}</li>
 		})
 		return (
