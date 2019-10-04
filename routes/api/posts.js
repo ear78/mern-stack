@@ -33,8 +33,9 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
 	const posts = await loadPostsCollection()
 	const query = { _id: new mongodb.ObjectID(req.params.id) }
-	await posts.updateOne(query, { $set: { text: req.body.text } })
-	res.status(201).send()
+	const newValues = { $set: { text: req.body.text }}
+	await posts.updateOne(query, newValues)
+	res.send(await posts.find({}).toArray())
 })
 
 // Delete Posts
