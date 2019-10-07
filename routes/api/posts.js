@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
 		const posts = await loadPostsCollection()
 		res.send(await posts.find({}).toArray())
 	} catch(err){
-		console.log('having trouble retrieving the data')
+		console.log('We\'re having trouble retrieving the data, please try again...', err)
 	}
 
 })
@@ -25,27 +25,38 @@ router.post('/', async (req, res) => {
 		await posts.insertOne(obj)
 	  res.send(await posts.find({}).toArray())
 	} catch(err) {
-		res.status()
+		console.warn('We\'re having trouble adding item to the list, please try again...', err)
 	}
 })
 
 // Update Posts
 router.put('/:id', async (req, res) => {
-	const posts = await loadPostsCollection()
-	const query = { _id: new mongodb.ObjectID(req.params.id) }
-	const newValues = { $set: { text: req.body.text }}
-	await posts.updateOne(query, newValues)
-	res.send(await posts.find({}).toArray())
+	try {
+		const posts = await loadPostsCollection()
+		const query = { _id: new mongodb.ObjectID(req.params.id) }
+		const newValues = { $set: { text: req.body.text }}
+		await posts.updateOne(query, newValues)
+		res.send(await posts.find({}).toArray())
+	}
+	catch(err) {
+		console.warn('We\'re having trouble editing the app, please try again...', err)
+	}
 })
 
 // Delete Posts
 router.delete('/:id', async (req, res) => {
-	const posts = await loadPostsCollection()
-	const query = { _id: new mongodb.ObjectID(req.params.id) }
-	await posts.findOneAndDelete(query, function(err, obj){
-		if(err) throw err
-	})
-	res.send(await posts.find({}).toArray())
+	try {
+		const posts = await loadPostsCollection()
+		const query = { _id: new mongodb.ObjectID(req.params.id) }
+		await posts.findOneAndDelete(query, function(err, obj){
+			if(err) throw err
+		})
+		res.send(await posts.find({}).toArray())
+	}
+	catch(err) {
+		console.warn('We\'re having trouble deleting the specific item, please try again...', err)
+	}
+
 })
 
 // Connecting to DB
