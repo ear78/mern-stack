@@ -2,6 +2,7 @@ import React from 'react';
 
 import ShoppingList from './components/ShoppingList'
 import Spinner from './components/ui/Spinner/Spinner'
+import H1 from './components/ui/H1/H1'
 import './App.css';
 
 /* Redux */
@@ -12,8 +13,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Spinner />
-        <h1>MERN CRUD</h1>
+        {/*<Spinner />*/}
+        <H1 textAlign="center">MERN</H1>
         <ShoppingList />
       </div>
     </Provider>
