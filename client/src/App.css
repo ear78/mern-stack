@@ -71,8 +71,10 @@ li {
 }
 
 .App {
-	margin: 15px;
 	border: 1px solid #efefef;
-	border-radius: 3px;
-	padding: 15px;
+  border-radius: 3px;
+  padding: 25px;
+  max-width: 450px;
+  margin: 5% auto 15px;
+  box-sizing: border-box;
 }

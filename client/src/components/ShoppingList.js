@@ -1,4 +1,8 @@
 import React from 'react'
+import styles from './ShoppingList.module.css'
+
+import deleteIcon from '../assets/images/delete-icon.svg'
+import editIcon from '../assets/images/edit-icon.svg'
 
 /* Components */
 import ButtonList from './ui/ButtonList/ButtonList'
@@ -57,17 +61,28 @@ class ShoppingList extends React.Component {
 		const { items } = this.props.item
 		const listItem = items.map((li) => {
 			return (
-				<li key={li._id}>
-					<ButtonList
-						text='Delete'
-						click={this.handleDeleteClick.bind(this, li._id)} />
+				<li key={li._id} className={styles.ListItem}>
+					<span>{li.text}</span>
+					<span>
+						{/*<ButtonList
+							text='Delete'
+							click={this.handleDeleteClick.bind(this, li._id)} ></ButtonList>*/}
 
-						<ButtonList
+							<img
+								style={{width: '20px', marginRight: '8px'}}
+								src={editIcon} alt="edit icon" onClick={this.toggleModal.bind(this, li._id)}/>
+							<img
+								style={{width: '20px'}}
+								src={deleteIcon} alt="delete icon"
+								onClick={this.handleDeleteClick.bind(this, li._id)}/>
+						{/*<ButtonList
 							text='Edit'
 							btnBgType='edit'
-							click={this.toggleModal.bind(this, li._id)} />
+							click={this.toggleModal.bind(this, li._id)} ></ButtonList>*/}
+					</span>
 
-					{li.text}
+
+
 				</li>
 			)
 		})
