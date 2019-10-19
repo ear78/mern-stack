@@ -1,0 +1,30 @@
+.SpinnerBg {
+  background: rgba(255,255,255, .8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 10%;
+}
+
+.Circle {
+  height: 40px;
+  width: 40px;
+  border: 4px solid #ededed;
+  border-right: 4px solid yellow;
+  /* border-top: 4px solid #00ACC1;
+  border-left: 4px solid #00ACC1; */
+  border-radius: 50%;
+  margin: auto;
+  animation: spin;
+  animation-duration: 1.1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+
+}

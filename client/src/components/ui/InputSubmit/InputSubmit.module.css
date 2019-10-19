@@ -1,0 +1,36 @@
+.InputSubmit {
+  position: relative;
+}
+
+.InputSubmit p {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.InputSubmit button {
+  position: absolute;
+  right: 3px;
+  top: 29px;
+  background: #ffd516;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all .14s ease;
+}
+
+.InputSubmit button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.InputSubmit input {
+  height: 35px;
+  border: 1px solid #ededed;
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 2px;
+  box-sizing: border-box;
+}

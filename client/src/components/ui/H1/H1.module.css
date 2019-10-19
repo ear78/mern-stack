@@ -1,0 +1,15 @@
+.H1 {
+  font-size: 3.25rem;
+  font-weight: 100;
+  text-align: left;
+  color: #454545;
+  margin-bottom: 15px;
+}
+
+.Center {
+  text-align: center;
+}
+
+.Right {
+  text-align: right;
+}

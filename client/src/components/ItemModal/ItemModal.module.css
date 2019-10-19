@@ -1,0 +1,28 @@
+.ModalBg {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.ModalStyle {
+  width: 70%;
+  min-height: 200px;
+  position: absolute;
+  padding: 10% 2.5%;
+  top: 10%;
+  left: 15%;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 15px rgba(0,0,0,.15);
+  box-sizing: border-box;
+}
+
+.Close {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}

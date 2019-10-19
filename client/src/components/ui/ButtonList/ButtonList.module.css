@@ -1,0 +1,19 @@
+.ButtonList {
+  cursor: pointer;
+  width: 20px;
+  transition: all .1s ease;
+}
+
+.ButtonList:first-child {
+  margin-right: 8px;
+}
+
+.ButtonList:hover {
+  opacity: .6;
+}
+
+.Edit {
+  background: transparent;
+  border: 1px solid #272727;
+  color: #272727;
+}
