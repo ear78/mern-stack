@@ -78,14 +78,18 @@ class ShoppingList extends React.Component {
 			)
 		})
 		return (
-			<div>
+			<div className={styles.ShoppingList}>
 				<ItemModal setAddItem={true} />
+				
 				<EditModal
 					modalVal={this.state.modalValues.text}
 					modalID={this.state.modalValues.id}
 					onClose={this.toggleModal}
 					show={this.state.isOpen} />
-				{listItem}
+
+				<div className={styles.List}>
+					{listItem}
+				</div>
 			</div>
 		)
 	}
