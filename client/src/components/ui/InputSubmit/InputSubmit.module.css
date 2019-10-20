@@ -5,6 +5,7 @@
 .InputSubmit p {
   text-transform: uppercase;
   font-weight: 700;
+  text-align: center;
 }
 
 .InputSubmit button {

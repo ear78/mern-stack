@@ -1,23 +1,33 @@
 .ModalBg {
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,.7);
   position: fixed;
   top: 0;
   left: 0;
+  opacity: 0;
+  text-align: center;
+  z-index: 10;
+  transform: scale(.5);
+  transition: all .14s ease-in-out;
 }
 
 .ModalStyle {
   width: 70%;
   min-height: 200px;
   position: absolute;
-  padding: 10% 2.5%;
+  padding: 10% 2.5% 5%;
   top: 10%;
   left: 15%;
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 15px rgba(0,0,0,.15);
   box-sizing: border-box;
+}
+
+.ModalBg.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .Close {

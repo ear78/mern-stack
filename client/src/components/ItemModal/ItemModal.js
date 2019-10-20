@@ -4,7 +4,11 @@ import styles from './ItemModal.module.css'
 import addIcon from '../../assets/images/add-icon.svg'
 
 /* Components */
+import InputSubmit from '../ui/InputSubmit/InputSubmit'
 import Button from '../ui/Button/Button'
+import CloseBtn from '../ui/CloseBtn/CloseBtn'
+import BrandLogo from '../ui/BrandLogo/BrandLogo'
+import Form from '../ui/Form/Form'
 
 /* Redux */
 import { connect } from 'react-redux'
@@ -48,13 +52,8 @@ class ItemModal extends React.Component {
 			width: '45px',
 			marginLeft: '4px'
 		}
-		const modalStyle = {
-			display: isModalActive
-		}
 
-		const modalBg = {
-			display: isModalActive
-		}
+		const active = this.state.modal ? styles.active : ''
 
 		return (
 			<div>
@@ -63,26 +62,18 @@ class ItemModal extends React.Component {
 					btnColor=""
 					btnWidth='fullWidth'
 					click={this.toggle.bind(this)} >
-						<img style={addIconStyle} src={addIcon} alt="add icon" />
-				</Button>
+						<img style={addIconStyle} src={addIcon} alt="add icon" /></Button>
 
-				<div className={styles.ModalBg} style={modalBg}>
-					<div className={styles.ModalStyle} style={modalStyle}>
-					<span onClick={this.toggle}
-								style={{
-									cursor: 'pointer',
-									position: 'absolute',
-									top: '15px',
-									left: '15px'
-								}}>&times;</span>
-						<form onSubmit={this.handleSubmit}>
-							<label>Please add your name:
-								<input type="text"
-											 value={this.state.name}
-											 onChange={this.handleChange}/>
-							</label>
-							<Button text="Submit" btnType="submit" btnValue="Submit" />
-						</form>
+				<div className={`${styles.ModalBg} ${active}`} >
+					<div className={styles.ModalStyle} >
+						<CloseBtn click={this.toggle} />
+						<Form submit={this.handleSubmit}>
+							<InputSubmit
+								placeHolderText="Get Stuff Done!"
+								inputValue={this.state.name}
+								inputChange={this.handleChange}>Add Item</InputSubmit>
+						</Form>
+						<BrandLogo />
 					</div>
 				</div>
 			</div>

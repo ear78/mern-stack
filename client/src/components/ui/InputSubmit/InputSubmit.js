@@ -8,6 +8,7 @@ function inputSubmit(props) {
       <p>{props.children}</p>
         <input
           type="text"
+          placeholder={props.placeHolderText}
           value={props.inputValue}
           onChange={props.inputChange}
           />

@@ -2,7 +2,7 @@
   width: 70%;
   min-height: 200px;
   position: absolute;
-  padding: 10% 2.5%;
+  padding: 10% 2.5% 5%;
   top: 10%;
   left: 15%;
   background: #fff;
@@ -24,19 +24,12 @@
   opacity: 0;
   z-index: 10;
   transform: scale(.5);
-  transition: all .1s ease-in-out;
+  transition: all .14s ease-in-out;
 }
 
 .ModalBackground.active {
   opacity: 1;
   transform: scale(1);
-}
-
-.Close {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  cursor: pointer;
 }
 
 .Modal input {
@@ -45,4 +38,8 @@
   width: 100%;
   text-align: center;
   margin: 10px auto;
+}
+
+.Modal img {
+  width: 50px;
 }

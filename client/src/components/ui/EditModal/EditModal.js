@@ -1,9 +1,15 @@
 import React from 'react'
 import styles from './EditModal.module.css'
 
+/* Assets */
+import earLogo from '../../../assets/images/ear-logo.svg'
+
 /* Components */
 import Button from '../Button/Button'
 import InputSubmit from '../InputSubmit/InputSubmit'
+import CloseBtn from '../CloseBtn/CloseBtn'
+import BrandLogo from '../BrandLogo/BrandLogo'
+import Form from '../Form/Form'
 
 /* Redux */
 import { connect } from 'react-redux'
@@ -50,24 +56,16 @@ class EditModal extends React.Component {
     return (
       <div className={`${styles.ModalBackground} ${active}`}>
         <div className={styles.Modal}>
-          <span className={styles.Close} onClick={this.props.onClose}>&times;</span>
-          <form onSubmit={this.handleSubmit}>
+          <CloseBtn
+            click={this.props.onClose} />
+
+          <Form
+            submit={this.handleSubmit}>
             <InputSubmit
               inputValue={this.state.text}
               inputChange={this.handleChange.bind(this)} >Edit Field</InputSubmit>
-            {/*<label>
-              Edit Field
-              <input
-                type="text"
-                value={this.state.text}
-                onChange={this.handleChange.bind(this)}
-                />
-            </label>*/}
-            {/*<Button
-              btnType="submit"
-              btnSize="small"
-              text="Submit" >Submit</Button>*/}
-          </form>
+          </Form>
+          <BrandLogo />
         </div>
       </div>
     )

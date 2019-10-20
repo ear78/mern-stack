@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ShoppingList from './components/ShoppingList'
+import ShoppingList from './components/ShoppingList/ShoppingList'
 import Spinner from './components/ui/Spinner/Spinner'
 import H1 from './components/ui/H1/H1'
 import './App.css';
