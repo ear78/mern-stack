@@ -3,6 +3,8 @@ import React from 'react';
 import ShoppingList from './components/ShoppingList/ShoppingList'
 import Spinner from './components/ui/Spinner/Spinner'
 import H1 from './components/ui/H1/H1'
+import BrandLogo from './components/ui/BrandLogo/BrandLogo'
+import Footer from './components/Footer/Footer'
 import './App.css';
 
 /* Redux */
@@ -12,10 +14,16 @@ import store from './store'
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        {/*<Spinner />*/}
-        <H1 textAlign="center">MERN</H1>
-        <ShoppingList />
+      <div className="Wrap">
+        <div className="App">
+          {/*<Spinner />*/}
+          <H1 textAlign="center">MERN</H1>
+          <ShoppingList />
+
+        </div>
+        <Footer>
+          <BrandLogo />
+        </Footer>
       </div>
     </Provider>
   )

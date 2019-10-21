@@ -70,11 +70,18 @@ li {
   list-style: none;
 }
 
+.Wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .App {
 	border: 1px solid #efefef;
   border-radius: 3px;
   padding: 25px;
-  max-width: 450px;
+  width: 85%;
   margin: 5% auto 15px;
   box-sizing: border-box;
+  max-width: 450px;
 }
