@@ -8,7 +8,7 @@
   color: #454545;
   cursor: pointer;
   font-size: 14px;
-  transition: all .2s ease;
+  transition: all .4s ease;
 }
 
 .Button:hover {
@@ -21,6 +21,7 @@
 }
 
 .Button:hover img {
+  transform: scale(.75);
   filter: invert(1);
 }
 

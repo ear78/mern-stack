@@ -47,12 +47,6 @@ class ItemModal extends React.Component {
 		const isModalActive = this.state.modal ? 'block' : 'none'
 		const isAddItem = this.props.setAddItem
 
-		const addIconStyle = {
-			verticalAlign: 'sub',
-			width: '45px',
-			marginLeft: '4px'
-		}
-
 		const active = this.state.modal ? styles.active : ''
 
 		return (
@@ -62,7 +56,8 @@ class ItemModal extends React.Component {
 					btnColor=""
 					btnWidth='fullWidth'
 					click={this.toggle.bind(this)} >
-						<img style={addIconStyle} src={addIcon} alt="add icon" /></Button>
+						<img className={styles.AddIcon} src={addIcon} alt="add icon" />
+					</Button>
 
 				<div className={`${styles.ModalBg} ${active}`} >
 					<div className={styles.ModalStyle} >
