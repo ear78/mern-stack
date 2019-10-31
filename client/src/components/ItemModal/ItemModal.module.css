@@ -13,12 +13,12 @@
 }
 
 .ModalStyle {
-  width: 70%;
+  width: 90%;
   min-height: 200px;
   position: absolute;
   padding: 10% 2.5% 5%;
   top: 10%;
-  left: 15%;
+  left: 5%;
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 15px rgba(0,0,0,.15);
@@ -39,4 +39,11 @@
 
 .AddIcon {
   width: 45px;
+}
+
+@media (min-width: 768px) {
+  .ModalStyle {
+    width: 70%;
+    left: 15%;
+  }
 }
