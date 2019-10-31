@@ -17,7 +17,6 @@ function App() {
         <div className="App">
           <H1 textAlign="center">MERN</H1>
           <ShoppingList />
-
         </div>
         <Footer>
           <BrandLogo />
