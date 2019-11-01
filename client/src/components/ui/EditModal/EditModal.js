@@ -54,7 +54,7 @@ class EditModal extends React.Component {
     const active = !this.props.show ? '' : styles.active
 
     return (
-      <div className={`${styles.ModalBackground} ${active}`}>
+      <div onClick={this.props.onClose} className={`${styles.ModalBackground} ${active}`}>
         <div className={styles.Modal}>
           <CloseBtn
             click={this.props.onClose} />
