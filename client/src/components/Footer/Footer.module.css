@@ -1,0 +1,14 @@
+.Footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: #f3f3f3;
+}
+
+.Footer .desc {
+  font-size: 11px;
+  padding: 40px 0 0;
+}
+
+.Footer span {
+  text-decoration: underline;
+}

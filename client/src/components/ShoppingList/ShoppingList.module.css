@@ -1,0 +1,25 @@
+.List {
+  padding-top: 20px;
+}
+
+.ListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.ListItem .Right {
+  min-width: 25%;
+  text-align: right;
+}
+
+.ListItem .Left {
+  width: 75%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 18px;
+}

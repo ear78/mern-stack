@@ -1,37 +1,48 @@
-.InputSubmit {
-  position: relative;
+.InputSubmit
+{
+    position: relative;
 }
 
-.InputSubmit p {
-  text-transform: uppercase;
-  font-weight: 700;
-  text-align: center;
+.InputSubmit p
+{
+    font-weight: 700;
+
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.InputSubmit button {
-  position: absolute;
-  right: 3px;
-  top: 29px;
-  background: #ffd516;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 2px;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: all .14s ease;
+.InputSubmit button
+{
+    position: absolute;
+    top: 28px;
+    right: 3px;
+
+    box-sizing: border-box;
+    padding: 8px 18px;
+
+    cursor: pointer;
+    transition: all .14s ease;
+
+    border: none;
+    border-radius: 2px;
+    background: #ffd516;
 }
 
-.InputSubmit button:hover {
-  background: #000;
-  color: #fff;
+.InputSubmit button:hover
+{
+    color: #fff;
+    background: #000;
 }
 
-.InputSubmit input {
-  height: 35px;
-  border: 1px solid #ededed;
-  width: 100%;
-  text-align: center;
-  margin: 10px auto;
-  border-radius: 2px;
-  box-sizing: border-box;
+.InputSubmit input
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 35px;
+    margin: 10px auto;
+
+    text-align: center;
+
+    border: 1px solid #ededed;
+    border-radius: 2px;
 }
